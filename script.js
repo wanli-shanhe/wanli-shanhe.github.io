@@ -64,7 +64,8 @@
       const modalImage = document.getElementById('modalImage');
       const sceneAudio = document.getElementById('sceneAudio');
       const collectBtn = document.getElementById('collectBtn');
-      const modalContent2= document.getElementById('modalContent2');
+      const modalContent2 = document.getElementById('modalContent2');
+      const modalhyperlink = document.getElementById('modalhyperlink');
       
       let currentScene = null;
       
@@ -77,6 +78,7 @@
             story: btn.dataset.story, 
             image: btn.closest('.scenery-card').querySelector('img').src,
             story:btn.dataset.story,
+            hyperlink:btn.dataset.hyperlink,
           };
           
           // 填充弹窗内容
@@ -85,6 +87,7 @@
           modalImage.src = currentScene.image;
           sceneAudio.src = currentScene.audio;
           modalContent2.innerHTML = `<p>${currentScene.story}</p>`;
+          modalhyperlink.innerHTML = currentScene.hyperlink;
           
           // 更新收藏按钮状态
           const isCollected = appData.collections.some(item => item.name === currentScene.name);
